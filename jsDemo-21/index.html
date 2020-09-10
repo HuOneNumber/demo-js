@@ -1,0 +1,74 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-10 11:28:20
+ * @LastEditTime: 2020-09-10 17:04:29
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \jsDemo-21\index.html
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <input type="text" class="tag_input">
+  <button type="submit" class="tag_add">添加tag</button>
+  <ul class="tag_output"></ul>
+
+  <textarea name="hobby_input" cols="20" rows="4" placeholder="请用/分隔"></textarea>
+  <button type="submit" class="hobby_add">添加兴趣爱好</button>
+  <ul class="hobby_output"></ul>
+
+  <script src="jsDemo-21.js"></script>
+  <script>
+    let tag_arr = [];
+    //tag添加点击事件
+    document.querySelector(".tag_add").onclick = function(){
+      let tag_input = document.getElementsByClassName("tag_input")[0];
+      let tag_output = document.getElementsByClassName("tag_output")[0];
+      tag_enqueue(tag_input,tag_output,tag_arr)
+    } 
+    
+
+      //hobby添加点击事件
+    document.querySelector(".hobby_add").onclick = function(){
+      let hobby_input = document.getElementsByName("hobby_input")[0];
+      let hobby_output = document.getElementsByClassName("hobby_output")[0];
+      hobby_enqueue(hobby_input,hobby_output)
+    } 
+    
+
+    //队列元素事件 
+    document.querySelector("ul").addEventListener('mouseover', function(e) {
+      if(e.target.tagName.toLowerCase() === 'li') {
+        e.target.innerText = '删除'+e.target.innerText;
+      }
+    })
+    document.querySelector("ul").addEventListener('mouseout', function(e) {
+      if(e.target.tagName.toLowerCase() === 'li') {
+        e.target.innerText = e.target.innerText.substr(2);
+      }
+    })
+    document.querySelector("ul").addEventListener('click', function(e) {
+      if(e.target.tagName.toLowerCase() === 'li') {
+        let index = tag_arr.indexOf(e.target.innerText.substr(2));
+        tag_arr.splice(index, 1);
+        document.querySelector("ul").removeChild(e.target);
+      }
+    })
+
+    //键盘输入事件
+    document.querySelector(".tag_input").addEventListener('keydown', function(e) {
+      if(e.keyCode === 13 || e.keyCode === 32 || e.keyCode === 188) {
+        document.querySelector(".tag_add").onclick();
+      }
+    })
+    
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+button,div,input{
+  margin: 0;
+  padding: 0;
+} 
+button {
+  outline-style: none;
+  padding: 0 4px;
+  background-color: transparent;
+  cursor: pointer;
+  border: 0.5px solid black;
+  border-radius: 5px;
+}
+button:hover {
+  font-weight: 800;
+}
+.enqueue-right {
+  margin-right: 30px;
+}
+.queue {
+  padding: 0;
+  list-style: none;
+  height: 30px;
+  width: 1000px;
+  background-color: #fff;
+}
+.queue li {
+  margin-left: 5px;
+  padding: 5px;
+  float: left;
+  background-color: red;
+  text-align: center;
+  cursor: pointer;
+}

@@ -1,0 +1,91 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-10 17:42:02
+ * @LastEditTime: 2020-09-11 01:35:54
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \jsDemo_22\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="root">
+		<div class="layer1">
+			<div class="layer2">
+				<div class="layer3"></div>
+				<div class="layer3"></div>
+			</div>
+			<div class="layer2">
+				<div class="layer3"></div>
+				<div class="layer3"></div>
+			</div>
+		</div>
+		<div class="layer1">
+			<div class="layer2">
+				<div class="layer3"></div>
+				<div class="layer3"></div>
+			</div>
+			<div class="layer2">
+				<div class="layer3"></div>
+				<div class="layer3"></div>
+			</div>
+		</div>
+  </div>
+  
+  <div class="traversal">
+    <button class="preOrder">前序遍历</button>
+    <button class="inOrder">中序遍历</button>
+    <button class="postOrder">后序遍历</button>
+  </div>
+  <script src="jsDemo-22.js"></script>
+  <script>
+    let root = document.querySelector(".root")
+    let timer = null;
+    //前序遍历
+    document.querySelector('.preOrder').onclick = function(){
+      let arr = [];
+      function preOrder(node) {
+        if(node != null){
+          arr.push(node);
+          preOrder(node.firstElementChild);
+          preOrder(node.lastElementChild);
+        } 
+      }
+      preOrder(root);
+      animate(arr);
+    }
+    //中序遍历
+    document.querySelector('.inOrder').onclick = function(){
+      let arr = [];
+      function inOrder(node) {
+        if(node != null){   
+          inOrder(node.firstElementChild);
+          arr.push(node);
+          inOrder(node.lastElementChild);
+        }
+      }
+      inOrder(root);
+      animate(arr);
+    }
+    //后序遍历
+    document.querySelector('.postOrder').onclick = function(){
+      let arr = [];
+      function postOrder(node) {
+        if(node != null){   
+          postOrder(node.firstElementChild);
+          postOrder(node.lastElementChild);
+          arr.push(node);
+        }
+      }
+      postOrder(root);
+      animate(arr);
+    }
+  </script>
+</body>
+</html>

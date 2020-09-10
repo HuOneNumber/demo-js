@@ -1,0 +1,41 @@
+div,button{
+	margin: 0;
+	padding: 0;
+}
+
+.root {
+	width: 1400px;
+	display: flex;
+	flex-direction: row;
+	padding: 20px 10px;
+  border:1px solid black;
+  z-index: 0;
+}
+.layer1, .layer2, .layer3 {
+	display: flex;
+	flex-direction: row;
+	border: 1px solid #000;
+	margin: 10px;
+	padding: 20px 10px;
+	background-color: #fff;
+}
+.layer3 {
+	width: 100px;
+	height: 100px;
+}
+.traversal {
+  width: 300px;
+  margin: 20px auto;
+}
+button {
+  outline-style: none;
+  padding: 0 4px;
+  background-color: transparent;
+  cursor: pointer;
+  border: 0.5px solid black;
+  border-radius: 5px;
+}
+button:hover {
+  font-weight: 800;
+}
+
